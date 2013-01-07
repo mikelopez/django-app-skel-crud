@@ -16,11 +16,12 @@ Installing Application
 - modify ``docs/conf.py`` as needed in your docs/ directory
 - modify ``app_folder_name/urls.py``, and replace app_folder_name with your app-name
 - modify ``app_folder_name/views.py`` file and change logger instance name. see sample below::
-import logging
-log = logging.getLogger('app_folder_name.views')
+
+  import logging
+  log = logging.getLogger('app_folder_name.views')
 
 - modify ``views.py`` and change the class-table names and forms inside of data dictionary. See below
-.. ::
+.. code::
 
   """
   data structure
