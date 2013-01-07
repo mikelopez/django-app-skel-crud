@@ -1,0 +1,54 @@
+
+
+<!-- edit customer modal -->
+<div class="modal" style="display:none;" id="edit_customer_modal" tabindex="-1" role="dialog" aria-labelledby="modal-edit-name" aria-hidden="true">
+      <div class="modal-header">
+        <button type="button" class="close" onclick="$('#edit_customer_modal').modal('hide');" aria-hidden="true">×</button>
+        <h2>Edit {{object.name}}</h2>
+      </div>
+
+        <div class="linebreak10"></div>
+        <div class="modal-body" id="modal_edit_customer_content">
+
+            <!-- add customer_form here to enable the modal edits -->
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-inverse" aria-hidden="true" onclick="$('#edit_customer_modal').modal('hide');">Close</button>
+          <input type="submit" class="btn btn-primary" value="Save"/>
+          
+        </div>
+
+</div>
+<!-- END customer modal -->
+
+<h3>{{object.name}}</h3>
+<hr />
+{% if form.has_errors %}
+    <div class="alert alert-error">{{form.errors}}</div>
+    <hr />
+    <div class="linebreak10"></div>
+{% endif %}
+
+<div class="pull-left">
+    <form action="{{edit_url}}/{{object.id}}/" method="POST" id="customer_form">{% csrf_token %}
+        {{form}}
+    </form>
+    <div class="linebreak10"></div>
+    <a href="#" onclick="$('#customer_form').submit();" class="btn btn-primary btn-large"
+        value="Edit this information">Update Contact</a>
+</div>
+
+
+
+
+
+<div class="linebreak10"></div>
+<div class="linebreak10"></div>
+<hr />
+
+
+
+
+
+

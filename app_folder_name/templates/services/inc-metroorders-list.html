@@ -1,0 +1,51 @@
+
+
+        <h3>Metro Ethernet Orders</h3><hr />
+        {% if form.errors %}
+        <div class="alert alert-error">{{form.errors}}</div>
+        {% else %}
+          {% if posted %}
+            <div class="alert alert-success">Successfully added customer as pending. You must edit it and activate it</div>
+          {% endif %}
+        {% endif %}
+        <form action="{% url customer_index %}customers/customer/add/" method="POST">{% csrf_token %}
+          {% for i in form %}
+            {% ifnotequal i.name 'status' %}
+              {{i}}&nbsp;&nbsp;
+            {% endifnotequal %}
+          {% endfor %}
+          <input type="submit" class="btn btn-success" value="Create New Customer" style="margin-top:-10px;"/>
+        </form>
+        <hr />
+
+
+
+        <table class="table table-bordered">
+          <tr>
+            <td></td>
+            <td>Customer</td>
+            <td>Phone</td>
+            <td>City</td>
+            <td>State</td>
+            <td>Zip</td>
+            <td>Status</td>
+
+          </tr>
+          
+            {% for i in object_list %}
+              
+            <tr>
+                <td><a class="btn btn-primary" href="{{edit_url}}/{{i.id}}">Edit</a></td>
+                <td>{{i.customer}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.city}}</td>
+                <td>{{i.state}}</td>
+                <td>{{i.zip}}</td>
+                <td>{{i.status}}</td>
+              </tr>
+   
+            {% endfor %}
+
+
+            
+        </table>

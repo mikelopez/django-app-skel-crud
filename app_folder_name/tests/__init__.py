@@ -1,0 +1,1 @@
+from digiportal_customers.tests.test_customers import TestCustomers
