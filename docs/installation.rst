@@ -19,7 +19,8 @@ Installing Application
 import logging
 log = logging.getLogger('app_folder_name.views')
 
-- modify ``views.py`` and change the class-table names and forms inside of data dictionary. See below::
+- modify ``views.py`` and change the class-table names and forms inside of data dictionary. See below
+.. code:: python
 """
 data structure
 service_name: dictionary with key as model-name(url), and 
