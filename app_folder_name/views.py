@@ -54,9 +54,9 @@ data = {
     #   'table-alias-name': [TableClass, TableClassForm],
     #   'other-table-alias': [TableClass, TableClassForm]
     #}
-    'app_folder': {
-        'student': [Customer, CustomerForm],
-        'school': [Contacts, ContactsForm],
+    'school-records': {
+        'student': [Student, StudentForm],
+        'school': [School, SchoolForm],
     },
 }
 

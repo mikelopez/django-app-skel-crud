@@ -5,11 +5,10 @@ from django.contrib.auth.views import login,logout
 # admin.autodiscover()
 from settings import PROJECT_ROOTDIR
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'portal2.views.home', name='home'),    
-    url(r'^reusable-main/', include('digiportal_customers.urls')),
+    # Examples:    
+    url(r'^reusable-main/', include('app_folder_name.urls')),
     
-
+    
     url(r'^login/', login),
     url(r'^logout/', logout, {'template_name': 'registration/login.html'}),
     url(r'^accounts/login', login),

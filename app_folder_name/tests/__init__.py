@@ -1,1 +1,1 @@
-from digiportal_customers.tests.test_customers import TestCustomers
+from app_folder_name.tests.main_app_tests import TestSchoolStudents
