@@ -20,25 +20,25 @@ import logging
 log = logging.getLogger('app_folder_name.views')
 
 - modify ``views.py`` and change the class-table names and forms inside of data dictionary. See below
-.. code-block:: 
+.. ::
 
-"""
-data structure
-service_name: dictionary with key as model-name(url), and 
-returns list of Model and Form instance 
-E.g: get the model = data.get('customers').get('customer')[0]
-E.g: get the form = data.get('customers').get('customer')[1]
-"""
-data = {
-    #'other_apps': {
-    #   'table-alias-name': [TableClass, TableClassForm],
-    #   'other-table-alias': [TableClass, TableClassForm]
-    #}
-    'school_district': {
-        'student': [Customer, CustomerForm],
-        'school': [Contacts, ContactsForm],
-    },
-}
+  """
+  data structure
+  service_name: dictionary with key as model-name(url), and 
+  returns list of Model and Form instance 
+  E.g: get the model = data.get('customers').get('customer')[0]
+  E.g: get the form = data.get('customers').get('customer')[1]
+  """
+  data = {
+      #'other_apps': {
+      #   'table-alias-name': [TableClass, TableClassForm],
+      #   'other-table-alias': [TableClass, TableClassForm]
+      #}
+      'school_district': {
+          'student': [Customer, CustomerForm],
+          'school': [Contacts, ContactsForm],
+      },
+  }
 
 - modify ``tests/__init__.py``, replace ``app_folder_name`` with your app name and the proper filename to the tests you want to include
 - modify ``tests/main_app_tests.py``, replace ``app_folder_name`` to your app-name, and change your models around to the actual table classes
