@@ -1,3 +1,4 @@
 include README.md
 include MANIFEST.in
-recursive-include app_folder_name/templates *
+recursive-include crudstuff/templates *
+recursive-include registration/templates *

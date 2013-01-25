@@ -4,7 +4,7 @@ from models import School, Student
 import logging
 log = logging.getLogger('app_folder_name.views')
 
-class SchoolForm(forms.ModelForm)
+class SchoolForm(forms.ModelForm):
     """
     Customer form for input/edit
     """
@@ -34,6 +34,6 @@ class StudentsForm(forms.ModelForm):
     Students form
     """
     class Meta:
-        model = Students
+        model = Student
 
 

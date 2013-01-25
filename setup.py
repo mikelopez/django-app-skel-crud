@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import sys, os
 
 setup(
-    name='app_folder_name',
+    name='crudstuff',
     version='0.1',
     description="Django app",
     long_description=open('README.md', 'r').read(),
@@ -11,7 +11,7 @@ setup(
     author_email='',
     url='',
     license='MIT',
-    package_dir={'app_folder_name': 'app_folder_name'},
+    package_dir={'crudstuff': 'crudstuff'},
     include_package_data=True,
     packages=find_packages(),
     classifiers=[

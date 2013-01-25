@@ -1,6 +1,8 @@
-import os
+import os, sys
 
 PROJECT_ROOTDIR = os.path.realpath(os.path.dirname(__file__))
+sys.path.append(PROJECT_ROOTDIR)
+
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -13,8 +15,8 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'sqldat.dat',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -95,12 +97,11 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-
     'debug_toolbar.middleware.DebugToolbarMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-INTERNAL_IPS = ('127.0.0.1','192.168.1.64','192.168.1.68')
+INTERNAL_IPS = ('127.0.0.1',)
 
 ROOT_URLCONF = 'demo_project.urls'
 
@@ -120,8 +121,8 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'app_folder_name',
     'debug_toolbar',
+    'crudstuff',
 
 
     # Uncomment the next line to enable the admin:
@@ -129,6 +130,15 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+  "django.core.context_processors.debug",
+  "django.core.context_processors.i18n",
+  "django.core.context_processors.media",
+  "django.core.context_processors.static",
+  "django.core.context_processors.tz",
+  "django.contrib.messages.context_processors.messages",
+  "crudstuff.context_processors.admin_data",)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -161,4 +171,18 @@ LOGGING = {
 
 STATIC_BOOTSTRAP = '/static/bootstrap'
 
-LOGIN_REDIRECT_URL = '/customers'
+LOGIN_REDIRECT_URL = '/'
+
+# make sure this model exists in data below! this is for testing
+TEST_MODEL_NAME = 'school'
+
+# set the class name for the model and form binding by key model name
+CRUDSTUFF_MODELS = {
+        'school': 'app_folder_name',
+        'student': 'app_folder_name'
+}
+CRUDSTUFF_FORMS = {
+        'school': 'SchoolForm', 
+        'student': 'StudentsForm'
+}
+DEBUG_TOOLBAR_CONFIG = { 'INTERCEPT_REDIRECTS': False }
