@@ -9,8 +9,8 @@ To set this application up the right way, you will need to do some things to you
 
 - add ``crudstuff.context_processprs.admin_data`` to TEMPLATE_CONTEXT_PROCESSORS on admin
 
-Here is an example of my context processors entry on settings.py
-..code:: python
+Here is an example of my context processors entry on settings.py::
+
   TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
   "django.core.context_processors.debug",
   "django.core.context_processors.i18n",
@@ -27,8 +27,8 @@ You will need to specify the models, the app name where that model class lives, 
 The "name" field of the model is a lowercase string representation of the class name so that we can then perform a model_name search via the context_processors. See the code in context_processors.py 
 
 
-- modify ``settings.py`` and change the class-table names and forms inside of data dictionary. See below
-..code:: python
+- modify ``settings.py`` and change the class-table names and forms inside of data dictionary. See below::
+
   """
   crudstuff_models = {
         'school': 'app_folder_name',
