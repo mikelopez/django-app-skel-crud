@@ -29,11 +29,11 @@ The "name" field of the model is a lowercase string representation of the class 
 
 modify ``settings.py`` and change the class-table names and forms inside of data dictionary. See below::
 
-  crudstuff_models = {
+  CRUDSTUFF_MODELS = {
         'school': 'app_folder_name',
         'student': 'app_folder_name'
   }
-  crudstuff_forms = {
+  CRUDSTUFF_FORMS = {
           'school': 'SchoolForm', 
           'student': 'StudentsForm'
   }
