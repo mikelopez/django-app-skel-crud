@@ -59,7 +59,7 @@ class admin_models:
         """
         app = self.get_app_by_model(k)
         if not app:
-            raise Exception('App is not found for model %s ' % k)
+            raise Exception('App %s is not found for model %s ' % (app, k))
 
         forms_module = importlib.import_module('%s.forms'%(app))
         form = getattr(forms_module, self.forms.get(k))

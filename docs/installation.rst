@@ -9,6 +9,8 @@ To set this application up the right way, you will need to do some things to you
 
 - add ``crudstuff.context_processprs.admin_data`` to TEMPLATE_CONTEXT_PROCESSORS on admin
 
+- (optional) add ``DEBUG_CRUD = True`` to enable logging to stderr and stdout
+
 Here is an example of my context processors entry on settings.py::
 
   TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",

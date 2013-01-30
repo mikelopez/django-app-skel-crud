@@ -5,6 +5,17 @@ log = logging.getLogger('crudstuff.context_processors')
 from bindmodels import admin_models
 from django.conf import settings
 
+# Set the logging
+DEBUG_CRUD = getattr(settings, "DEBUG_CRUD", False)
+if DEBUG_CRUD:
+  hdlr = logging.StreamHandler()
+  formatter = logging.Formatter('\n--\nLOG :: %(asctime)s %(levelname)s %(message)s \n---')
+  hdlr.setFormatter(formatter)
+  log.addHandler(hdlr)
+  log.setLevel(logging.INFO)
+  log.setLevel(logging.DEBUG)
+
+
 def admin_data(request):
     """
     get the model name and return model instance
@@ -37,11 +48,12 @@ def admin_data(request):
         model = ctype.model_class()
 
     # return the models list for nav
-    models_list = admin_models(settings=settings).models.keys()
+    admin_class = admin_models(settings=settings)
+    models_list = admin_class.models.keys()
 
     # if model is set, check show/add/remove actions
     if model:
-        model_form = admin_models().get_form_by_model(model_name)
+        model_form = admin_class.get_form_by_model(model_name)
 
         if action == 'show':
             model_values = model.objects.all()
