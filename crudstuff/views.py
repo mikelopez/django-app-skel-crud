@@ -18,8 +18,6 @@ def index(request, model=None, action=None, id=None):
     """
     Context processor checks for models and returns model list
     """
-    log.info(settings.TEST_MODEL_NAME)
-    log.info('Test Views')
     request.session['model'] = model
     request.session['action'] = action
     request.session['id'] = id
