@@ -27,7 +27,7 @@ You will need to specify the models, the app name where that model class lives, 
 The "name" field of the model is a lowercase string representation of the class name so that we can then perform a model_name search via the context_processors. See the code in context_processors.py 
 
 
-- modify ``settings.py`` and change the class-table names and forms inside of data dictionary. See below::
+modify ``settings.py`` and change the class-table names and forms inside of data dictionary. See below::
 
   crudstuff_models = {
         'school': 'app_folder_name',
@@ -41,7 +41,7 @@ The "name" field of the model is a lowercase string representation of the class 
 
 Projects Configuration 
 =====================
-- modify your PROJECTS (see ``demo_project`` folder) urls.py file to include the app's ``urls.py`` file. See sample::
+modify your PROJECTS (see ``demo_project`` folder) urls.py file to include the app's ``urls.py`` file. See sample::
 
   from django.conf.urls import patterns, include, url
   from django.contrib.auth.views import login,logout
