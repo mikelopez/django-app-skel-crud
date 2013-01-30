@@ -28,7 +28,7 @@ The "name" field of the model is a lowercase string representation of the class 
 
 
 - modify ``settings.py`` and change the class-table names and forms inside of data dictionary. See below
-.. code:: python
+..code:: python
   """
   crudstuff_models = {
         'school': 'app_folder_name',
@@ -43,7 +43,7 @@ The "name" field of the model is a lowercase string representation of the class 
 Projects Configuration 
 =====================
 - modify your PROJECTS (see ``demo_project`` folder) urls.py file to include the app's ``urls.py`` file. See sample
-.. code:: python
+..code:: python
   from django.conf.urls import patterns, include, url
   from django.contrib.auth.views import login,logout
   # Uncomment the next two lines to enable the admin:
