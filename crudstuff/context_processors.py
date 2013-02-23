@@ -62,9 +62,23 @@ def admin_data(request):
             if not value:
                 log.info('Edit value not set...')
             if value:
+                try:
+                    get_data = model.objects.get(pk=int(value))
+                    model_form = model_form(get_data.__dict__)
+                except model.DoesNotExist:
+                    get_data = None
+                    pass
                 if request.method == 'POST':
                     log.info('Processing EDIT POST')
-                    model_form = model_form()
+                    if get_data:
+                        log.info('Saving the edit form...')
+                        # set it again cause it has been set previously
+                        model_form = admin_class.get_form_by_model(model_name)
+                        model_form = model_form(request.POST)
+                        if model_form.is_valid():
+                            log.info("Valid form....saving")
+                            model_form.update(get_data)
+
             
         if action == 'add':
             if request.method == 'POST':

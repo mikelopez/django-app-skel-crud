@@ -9,6 +9,10 @@ class admin_models:
     application folder local to your project then you can just 
     edit models and forms here and keep exclude the settings options
     """
+    model_tables = {
+        'website': 'Website',
+        'websitepage': 'WebsitePage',
+    }
     models = {
         'website': 'mainweb',
         'websitepage': 'mainweb'
@@ -34,14 +38,17 @@ class admin_models:
                     self.forms = getattr(settings, 'CRUDSTUFF_FORMS')
             except AttributeError:
                 pass
-
+            try:
+                if getattr(settings, 'CRUDSTUFF_FORMS'):
+                    self.model_tables = getattr(settings, 'CRUDSTUFF_MODEL_TABLES')
+            except AttributeError:
+              pass
 
     def get_app(self, k):
         """
         get the app name based on a model
         """
         return self.models.get(k)
-
 
     def get_app_by_model(self, k):
         """
