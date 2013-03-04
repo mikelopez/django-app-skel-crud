@@ -27,3 +27,8 @@ They will have to be coded into the main-reusable-app views, with a try/except i
 If those imports are found, the data for the models and forms will then be added to the main ``data`` dictionary for the controller.
 
 
+NOTE ON Overwriting Templates
+=====================
+By default, it comes with a clean set of templates with Twitter Bootstrap.
+If you want to override the templates with a custom dashboard template you can 
+refer to the applications sample temptaes to see what data you have to play with and implement your own designs
