@@ -31,4 +31,6 @@ NOTE ON Overwriting Templates
 =====================
 By default, it comes with a clean set of templates with Twitter Bootstrap.
 If you want to override the templates with a custom dashboard template you can 
-refer to the applications sample temptaes to see what data you have to play with and implement your own designs
+refer to the applications sample temptaes to see what data you have to play with and implement your own designs.
+This can be done similar to overriding django's login template.
+You can just create a folder named "crudstuff" in your TEMPLATE_DIR location and overwrite the filenames listed in the project repository
